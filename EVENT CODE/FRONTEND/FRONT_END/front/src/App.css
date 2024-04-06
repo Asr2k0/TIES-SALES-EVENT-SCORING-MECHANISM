@@ -1,0 +1,390 @@
+/* App.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #776565 50%, white 50%);
+}
+
+.container {
+  display: flex;
+  justify-content: flex-start; /* Align to the left */
+  align-items: center;
+  height: 100vh;
+}
+
+.left-panel,
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px; /* Adjust as needed */
+}
+
+.right-panel {
+  margin-left: auto; /* Push to the right */
+}
+
+.logo-container {
+  position: fixed;
+  top: 20px;
+  left: 60px; /* Adjust the distance from the left edge */
+}
+
+.logo {
+  max-width: 350px;
+  height: auto;
+}
+
+.welcome-message {
+  position: fixed;
+  top: calc(20px + var(--logo-height)); /* Adjust to place it just under the logo */
+  left: 45px; /* Adjust the distance from the left edge */
+  text-align: center;
+  font-size: 45px;
+  line-height: 1.2; /* Adjust line height as needed */
+}
+
+.welcome-message p {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.box {
+  width: 80%; /* Adjust the size of the box as needed */
+  max-width: 600px;
+  height: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 10px solid black;
+  border-radius: 25px;
+  margin: 20px; /* Adjust margin as needed */
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button-container button {
+  flex-basis: calc(50% - 20px);
+  margin: 10px;
+  padding: 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: 2px solid black;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  width: 80%;
+  max-width: 600px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  border: solid 10px black;
+}
+
+.slider {
+  width: 100%;
+  height: 25px;
+  background: #007bff;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 5px;
+}
+
+.slider::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Additional styles for responsiveness */
+@media only screen and (max-width: 768px) {
+  .left-panel,
+  .right-panel {
+    margin-right: 0;
+  }
+  .logo-container {
+    margin-right: 0;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .welcome-message {
+    font-size: 20px;
+    padding: 15px; /* Add padding to prevent overlapping */
+  }
+  .box {
+    width: 90%;
+    border-width: 5px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: center; /* Center items */
+  }
+
+  .left-panel,
+  .right-panel {
+    margin-right: 0; /* Remove right margin */
+    margin-left: 0; /* Remove left margin */
+  }
+
+  .student-container {
+    width: 90%; /* Adjust width for smaller screens */
+    min-height: auto; /* Remove minimum height */
+    margin-left: auto; /* Center the container */
+    margin-right: auto; /* Center the container */
+  }
+
+  .student-container .student-box {
+    flex: 0 1 100%; /* Full width for each student */
+  }
+
+  .form-container {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+}
+
+/* Add the following media query for iPads */
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+  .container {
+    flex-direction: row; /* Revert back to horizontal layout */
+  }
+
+  .student-container {
+    width: 50%; /* Adjust width for iPads */
+    margin-left: auto; /* Move the container to the right */
+  }
+
+  .form-container {
+    width: 50%; /* Adjust width for iPads */
+  }
+}
+
+.button-container button:hover {
+  background-color: green; /* Change to green on hover */
+}
+
+/* Add the code for student container here */
+.student-container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  gap: 15px;
+  padding: 15px; /* Adjust padding around the container */
+  background-color: white; /* Add background color */
+  border: 10px solid black; /* Add border */
+  border-radius: 25px; /* Add border radius */
+  min-height: calc(80vh - 50px); /* Set minimum height to fit 80% of the viewport height minus some space */
+  width: 500px; /* Set width to fit 40% of the screen width minus some space */
+  overflow-y: auto; /* Add vertical scroll if necessary */
+  margin-left: auto; /* Move the container to the right */
+}
+
+.student-container h2{
+  text-align:center;
+}
+
+.student-container .student-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Align to the left */
+  gap: 15px;
+}
+
+.student-container .student-box {
+  flex: 0 1 calc(50% - 10px); /* Two students per row with proper spacing */
+  margin-bottom: 15px; /* Adjust margin between rows */
+}
+
+.student-container .student-box button {
+  width: 100%; /* Take full width of the container */
+  padding: 10px; /* Adjust padding as needed */
+  font-size: 14px; /* Adjust font size */
+  border-radius: 5px; /* Add rounded corners */
+  background-color: #eeeeee; /* Grey background color */
+  color: #333333; /* Dark grey text color */
+  border: 2px solid black; /* Add border */
+  cursor: pointer;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Show ellipsis for overflowed text */
+}
+
+.student-container .student-box button.saved {
+  background-color: green; /* Change to green */
+}
+
+.student-container .student-box button:hover {
+  background-color: #cccccc; /* Slightly darken background color on hover */
+}
+
+.student-container .submit-button {
+  width: calc(100% - 10px); /* Take full width of the container */
+  padding: 10px; /* Adjust padding as needed */
+  font-size: 14px; /* Adjust font size */
+  border-radius: 5px; /* Add rounded corners */
+  background-color: #007bff; /* Blue background color */
+  color: white; /* White text color */
+  border: 2px solid black; /* Add border */
+  cursor: pointer;
+}
+
+.student-container .submit-button:hover {
+  background-color: #0056b3; /* Darken background color on hover */
+}
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+  .student-container {
+    width: calc(100% - 30px); /* Adjust width for smaller screens */
+    min-height: calc(100vh - 50px); /* Set minimum height to fit the viewport height minus some space */
+  }
+}
+
+.form-container {
+  width: 80%;
+  max-width: 600px;
+  background-color: #f8f9fa; /* Light gray background */
+  padding: 30px;
+  border-radius: 15px;
+  border: 2px solid #343a40; /* Dark border */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 20px; /* Increase font size */
+  color: #343a40; /* Dark text color */
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da; /* Light border */
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none; /* Remove default styles */
+  height: 10px; /* Slider height */
+  background: #d3d3d3; /* Gray background */
+  border-radius: 5px;
+  outline: none; /* Remove outline */
+  margin-bottom: 10px;
+}
+
+.form-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default styles */
+  appearance: none;
+  width: 20px; /* Thumb width */
+  height: 20px; /* Thumb height */
+  background: #007bff; /* Blue thumb color */
+  border-radius: 50%; /* Circle shape */
+  cursor: pointer;
+}
+
+.form-group input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #007bff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.form-group span {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 14px;
+  color: #343a40; /* Dark text color */
+}
+
+.button-container button[type="button"] {
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue button color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-container button[type="button"]:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.button-container button[type="button"] {
+  /* Existing styles remain unchanged */
+  margin-right: 10px; /* Add margin to the right of each button */
+}
+
+.button-container button[type="button"]:last-child {
+  margin-right: 0; /* Remove margin from the last button */
+}
+
+.student-container .total-score {
+  font-size: 36px; /* Increase font size */
+  font-weight: bold;
+  color: #007bff; /* Blue text color */
+  margin-top: 15px; /* Add some space above the total score */
+}
+
+/* Additional styles for slider */
+.slider {
+  width: 100%;
+  height: 25px;
+  background: #007bff;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 5px;
+}
+
+.slider::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add shadow */
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add shadow */
+}
